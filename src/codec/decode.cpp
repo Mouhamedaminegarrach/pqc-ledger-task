@@ -266,20 +266,23 @@ Result<Transaction> decode(const std::vector<uint8_t>& data) {
             tx.auth_mode = AuthMode::PqOnly;
             auto sig_bytes = reader.read_bytes_with_len();
             
-            // Validate PQ signature size matches expected algorithm size (default: ML-DSA-65, equivalent to Dilithium3)
-            // ML-DSA-65 signature size is 3309 bytes
-            constexpr size_t ML_DSA_65_SIG_SIZE = 3309;
-            auto expected_sig_size = pqc_ledger::crypto::get_signature_size("ML-DSA-65");
-            size_t expected_size = ML_DSA_65_SIG_SIZE;  // Default fallback
-            if (expected_sig_size.is_ok()) {
-                expected_size = expected_sig_size.value();
-            }
-            
-            if (sig_bytes.size() != expected_size) {
-                return Result<Transaction>::Err(Error(ErrorCode::InvalidSignature,
-                    "PQ signature size mismatch: expected " + 
-                    std::to_string(expected_size) + 
-                    ", got " + std::to_string(sig_bytes.size())));
+            // Allow empty signature for unsigned transactions (size 0)
+            // Otherwise, validate PQ signature size matches expected algorithm size
+            if (sig_bytes.size() > 0) {
+                // ML-DSA-65 signature size is 3309 bytes
+                constexpr size_t ML_DSA_65_SIG_SIZE = 3309;
+                auto expected_sig_size = pqc_ledger::crypto::get_signature_size("ML-DSA-65");
+                size_t expected_size = ML_DSA_65_SIG_SIZE;  // Default fallback
+                if (expected_sig_size.is_ok()) {
+                    expected_size = expected_sig_size.value();
+                }
+                
+                if (sig_bytes.size() != expected_size) {
+                    return Result<Transaction>::Err(Error(ErrorCode::InvalidSignature,
+                        "PQ signature size mismatch: expected " + 
+                        std::to_string(expected_size) + 
+                        ", got " + std::to_string(sig_bytes.size())));
+                }
             }
             
             tx.auth = PqSignature{std::move(sig_bytes)};
