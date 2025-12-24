@@ -74,11 +74,16 @@ int cmd_gen_key(const ArgParser& parser) {
         return 1;
     }
     
-    // Generate PQ keypair
+    // Generate PQ keypair - try Dilithium3 first, fallback to Dilithium2
     auto keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium3");
     if (keypair_result.is_err()) {
-        std::cerr << "Error generating keypair: " << keypair_result.error().message << "\n";
-        return 1;
+        // Try Dilithium2 as fallback
+        keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium2");
+        if (keypair_result.is_err()) {
+            std::cerr << "Error generating keypair: " << keypair_result.error().message << "\n";
+            std::cerr << "Note: liboqs must be built with Dilithium2 or Dilithium3 enabled.\n";
+            return 1;
+        }
     }
     
     const auto& [pubkey, privkey] = keypair_result.value();

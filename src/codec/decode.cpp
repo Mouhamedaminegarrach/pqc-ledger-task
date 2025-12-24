@@ -233,13 +233,19 @@ Result<Transaction> decode(const std::vector<uint8_t>& data) {
         // From pubkey (variable length)
         tx.from_pubkey = reader.read_bytes_with_len();
         
-        // Validate pubkey size matches expected algorithm size (default: Dilithium3)
-        auto expected_pubkey_size = pqc_ledger::crypto::get_pubkey_size("Dilithium3");
-        if (expected_pubkey_size.is_ok() && 
-            tx.from_pubkey.size() != expected_pubkey_size.value()) {
+        // Validate pubkey size matches expected algorithm size (default: ML-DSA-65, equivalent to Dilithium3)
+        // ML-DSA-65 pubkey size is 1952 bytes (same as Dilithium3)
+        constexpr size_t ML_DSA_65_PUBKEY_SIZE = 1952;
+        auto expected_pubkey_size = pqc_ledger::crypto::get_pubkey_size("ML-DSA-65");
+        size_t expected_size = ML_DSA_65_PUBKEY_SIZE;  // Default fallback
+        if (expected_pubkey_size.is_ok()) {
+            expected_size = expected_pubkey_size.value();
+        }
+        
+        if (tx.from_pubkey.size() != expected_size) {
             return Result<Transaction>::Err(Error(ErrorCode::InvalidPublicKey,
                 "Public key size mismatch: expected " + 
-                std::to_string(expected_pubkey_size.value()) + 
+                std::to_string(expected_size) + 
                 ", got " + std::to_string(tx.from_pubkey.size())));
         }
         
@@ -260,13 +266,19 @@ Result<Transaction> decode(const std::vector<uint8_t>& data) {
             tx.auth_mode = AuthMode::PqOnly;
             auto sig_bytes = reader.read_bytes_with_len();
             
-            // Validate PQ signature size matches expected algorithm size (default: Dilithium3)
-            auto expected_sig_size = pqc_ledger::crypto::get_signature_size("Dilithium3");
-            if (expected_sig_size.is_ok() && 
-                sig_bytes.size() != expected_sig_size.value()) {
+            // Validate PQ signature size matches expected algorithm size (default: ML-DSA-65, equivalent to Dilithium3)
+            // ML-DSA-65 signature size is 3309 bytes
+            constexpr size_t ML_DSA_65_SIG_SIZE = 3309;
+            auto expected_sig_size = pqc_ledger::crypto::get_signature_size("ML-DSA-65");
+            size_t expected_size = ML_DSA_65_SIG_SIZE;  // Default fallback
+            if (expected_sig_size.is_ok()) {
+                expected_size = expected_sig_size.value();
+            }
+            
+            if (sig_bytes.size() != expected_size) {
                 return Result<Transaction>::Err(Error(ErrorCode::InvalidSignature,
                     "PQ signature size mismatch: expected " + 
-                    std::to_string(expected_sig_size.value()) + 
+                    std::to_string(expected_size) + 
                     ", got " + std::to_string(sig_bytes.size())));
             }
             
@@ -283,13 +295,19 @@ Result<Transaction> decode(const std::vector<uint8_t>& data) {
                     std::to_string(classical_sig.size())));
             }
             
-            // Validate PQ signature size matches expected algorithm size (default: Dilithium3)
-            auto expected_sig_size = pqc_ledger::crypto::get_signature_size("Dilithium3");
-            if (expected_sig_size.is_ok() && 
-                pq_sig.size() != expected_sig_size.value()) {
+            // Validate PQ signature size matches expected algorithm size (default: ML-DSA-65, equivalent to Dilithium3)
+            // ML-DSA-65 signature size is 3309 bytes
+            constexpr size_t ML_DSA_65_SIG_SIZE = 3309;
+            auto expected_sig_size = pqc_ledger::crypto::get_signature_size("ML-DSA-65");
+            size_t expected_size = ML_DSA_65_SIG_SIZE;  // Default fallback
+            if (expected_sig_size.is_ok()) {
+                expected_size = expected_sig_size.value();
+            }
+            
+            if (pq_sig.size() != expected_size) {
                 return Result<Transaction>::Err(Error(ErrorCode::InvalidSignature,
                     "PQ signature size mismatch: expected " + 
-                    std::to_string(expected_sig_size.value()) + 
+                    std::to_string(expected_size) + 
                     ", got " + std::to_string(pq_sig.size())));
             }
             

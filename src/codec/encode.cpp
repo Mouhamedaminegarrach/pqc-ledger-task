@@ -156,13 +156,15 @@ std::string encode_to_base64(const std::vector<uint8_t>& bytes) {
         result += base64_chars[(combined >> 18) & 0x3F];
         result += base64_chars[(combined >> 12) & 0x3F];
         
-        if (bytes_read >= 3) {
+        // Third character: present if we have at least 2 bytes
+        if (bytes_read >= 2) {
             result += base64_chars[(combined >> 6) & 0x3F];
         } else {
             result += '=';
         }
         
-        if (bytes_read >= 2) {
+        // Fourth character: present only if we have 3 bytes
+        if (bytes_read >= 3) {
             result += base64_chars[combined & 0x3F];
         } else {
             result += '=';

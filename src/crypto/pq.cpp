@@ -8,19 +8,55 @@ namespace pqc_ledger::crypto {
 
 namespace {
     // Map algorithm name to liboqs algorithm string
+    // Note: Modern liboqs uses ML-DSA (NIST standard) instead of Dilithium
+    // ML-DSA-65 is roughly equivalent to Dilithium3
     const char* get_oqs_alg_name(const std::string& algorithm) {
-        if (algorithm == "Dilithium2") {
-            return "Dilithium2";
-        } else if (algorithm == "Dilithium3") {
-            return "Dilithium3";
-        } else if (algorithm == "Dilithium5") {
-            return "Dilithium5";
+        if (algorithm == "Dilithium3" || algorithm == "Dilithium-3" || algorithm == "ML-DSA-65") {
+            // Use ML-DSA-65 (NIST standard, equivalent to Dilithium3)
+            return "ML-DSA-65";
+        } else if (algorithm == "Dilithium2" || algorithm == "Dilithium-2" || algorithm == "ML-DSA-44") {
+            // Use ML-DSA-44 (NIST standard, equivalent to Dilithium2)
+            return "ML-DSA-44";
+        } else if (algorithm == "Dilithium5" || algorithm == "Dilithium-5" || algorithm == "ML-DSA-87") {
+            // Use ML-DSA-87 (NIST standard, equivalent to Dilithium5)
+            return "ML-DSA-87";
+        }
+        return nullptr;
+    }
+    
+    // Try to find an available ML-DSA algorithm (NIST standard)
+    const char* find_available_ml_dsa() {
+        // Ensure OQS is initialized
+        static bool oqs_initialized = false;
+        if (!oqs_initialized) {
+            OQS_init();
+            oqs_initialized = true;
+        }
+        
+        // Try ML-DSA algorithms (NIST standard names)
+        const char* algorithms[] = {"ML-DSA-65", "ML-DSA-44", "ML-DSA-87", 
+                                    // Also try old Dilithium names for compatibility
+                                    "Dilithium3", "Dilithium-3", "Dilithium2", "Dilithium-2", 
+                                    "Dilithium5", "Dilithium-5", nullptr};
+        for (int i = 0; algorithms[i] != nullptr; ++i) {
+            OQS_SIG* sig = OQS_SIG_new(algorithms[i]);
+            if (sig != nullptr) {
+                OQS_SIG_free(sig);
+                return algorithms[i];
+            }
         }
         return nullptr;
     }
 }
 
 Result<std::pair<PublicKey, std::vector<uint8_t>>> generate_keypair(const std::string& algorithm) {
+    // Initialize OQS if not already initialized
+    static bool oqs_initialized = false;
+    if (!oqs_initialized) {
+        OQS_init();
+        oqs_initialized = true;
+    }
+    
     const char* alg_name = get_oqs_alg_name(algorithm);
     if (!alg_name) {
         return Result<std::pair<PublicKey, std::vector<uint8_t>>>::Err(
@@ -29,9 +65,25 @@ Result<std::pair<PublicKey, std::vector<uint8_t>>> generate_keypair(const std::s
     
     OQS_SIG* sig = OQS_SIG_new(alg_name);
     if (sig == nullptr) {
-        return Result<std::pair<PublicKey, std::vector<uint8_t>>>::Err(
-            Error(ErrorCode::KeyGenerationFailed, 
-                  "Algorithm " + algorithm + " not enabled at compile-time or not available"));
+        // Try to find any available ML-DSA algorithm as fallback
+        if (algorithm == "Dilithium3" || algorithm == "Dilithium2" || algorithm == "Dilithium5" ||
+            algorithm == "ML-DSA-65" || algorithm == "ML-DSA-44" || algorithm == "ML-DSA-87") {
+            const char* fallback = find_available_ml_dsa();
+            if (fallback) {
+                sig = OQS_SIG_new(fallback);
+                if (sig != nullptr) {
+                    // Use the fallback algorithm
+                    alg_name = fallback;
+                }
+            }
+        }
+        
+        if (sig == nullptr) {
+            return Result<std::pair<PublicKey, std::vector<uint8_t>>>::Err(
+                Error(ErrorCode::KeyGenerationFailed, 
+                      "Algorithm " + algorithm + " not enabled at compile-time or not available. "
+                      "Please ensure liboqs is built with ML-DSA (or Dilithium) algorithms enabled."));
+        }
     }
     
     PublicKey pubkey(sig->length_public_key);
@@ -103,6 +155,13 @@ Result<void> save_private_key(const std::vector<uint8_t>& privkey, const std::st
 Result<Signature> sign(const std::vector<uint8_t>& message,
                        const std::vector<uint8_t>& privkey,
                        const std::string& algorithm) {
+    // Initialize OQS if not already initialized
+    static bool oqs_initialized = false;
+    if (!oqs_initialized) {
+        OQS_init();
+        oqs_initialized = true;
+    }
+    
     const char* alg_name = get_oqs_alg_name(algorithm);
     if (!alg_name) {
         return Result<Signature>::Err(
@@ -111,9 +170,24 @@ Result<Signature> sign(const std::vector<uint8_t>& message,
     
     OQS_SIG* sig = OQS_SIG_new(alg_name);
     if (sig == nullptr) {
-        return Result<Signature>::Err(
-            Error(ErrorCode::SignatureVerificationFailed,
-                  "Algorithm " + algorithm + " not enabled at compile-time or not available"));
+        // Try to find any available ML-DSA algorithm as fallback
+        if (algorithm == "Dilithium3" || algorithm == "Dilithium2" || algorithm == "Dilithium5" ||
+            algorithm == "ML-DSA-65" || algorithm == "ML-DSA-44" || algorithm == "ML-DSA-87") {
+            const char* fallback = find_available_ml_dsa();
+            if (fallback) {
+                sig = OQS_SIG_new(fallback);
+                if (sig != nullptr) {
+                    // Use the fallback algorithm
+                    alg_name = fallback;
+                }
+            }
+        }
+        
+        if (sig == nullptr) {
+            return Result<Signature>::Err(
+                Error(ErrorCode::SignatureVerificationFailed,
+                      "Algorithm " + algorithm + " not enabled at compile-time or not available"));
+        }
     }
     
     // Verify private key size matches expected
@@ -150,6 +224,13 @@ Result<bool> verify(const std::vector<uint8_t>& message,
                     const Signature& signature,
                     const PublicKey& pubkey,
                     const std::string& algorithm) {
+    // Initialize OQS if not already initialized
+    static bool oqs_initialized = false;
+    if (!oqs_initialized) {
+        OQS_init();
+        oqs_initialized = true;
+    }
+    
     const char* alg_name = get_oqs_alg_name(algorithm);
     if (!alg_name) {
         return Result<bool>::Err(
@@ -158,9 +239,24 @@ Result<bool> verify(const std::vector<uint8_t>& message,
     
     OQS_SIG* sig = OQS_SIG_new(alg_name);
     if (sig == nullptr) {
-        return Result<bool>::Err(
-            Error(ErrorCode::SignatureVerificationFailed,
-                  "Algorithm " + algorithm + " not enabled at compile-time or not available"));
+        // Try to find any available ML-DSA algorithm as fallback
+        if (algorithm == "Dilithium3" || algorithm == "Dilithium2" || algorithm == "Dilithium5" ||
+            algorithm == "ML-DSA-65" || algorithm == "ML-DSA-44" || algorithm == "ML-DSA-87") {
+            const char* fallback = find_available_ml_dsa();
+            if (fallback) {
+                sig = OQS_SIG_new(fallback);
+                if (sig != nullptr) {
+                    // Use the fallback algorithm
+                    alg_name = fallback;
+                }
+            }
+        }
+        
+        if (sig == nullptr) {
+            return Result<bool>::Err(
+                Error(ErrorCode::SignatureVerificationFailed,
+                      "Algorithm " + algorithm + " not enabled at compile-time or not available"));
+        }
     }
     
     // Verify key sizes match expected
@@ -187,6 +283,13 @@ Result<bool> verify(const std::vector<uint8_t>& message,
 }
 
 Result<size_t> get_pubkey_size(const std::string& algorithm) {
+    // Ensure OQS is initialized
+    static bool oqs_initialized = false;
+    if (!oqs_initialized) {
+        OQS_init();
+        oqs_initialized = true;
+    }
+    
     const char* alg_name = get_oqs_alg_name(algorithm);
     if (!alg_name) {
         return Result<size_t>::Err(Error(ErrorCode::InvalidPublicKey, "Unknown algorithm: " + algorithm));
@@ -205,6 +308,13 @@ Result<size_t> get_pubkey_size(const std::string& algorithm) {
 }
 
 Result<size_t> get_signature_size(const std::string& algorithm) {
+    // Ensure OQS is initialized
+    static bool oqs_initialized = false;
+    if (!oqs_initialized) {
+        OQS_init();
+        oqs_initialized = true;
+    }
+    
     const char* alg_name = get_oqs_alg_name(algorithm);
     if (!alg_name) {
         return Result<size_t>::Err(Error(ErrorCode::InvalidSignature, "Unknown algorithm: " + algorithm));

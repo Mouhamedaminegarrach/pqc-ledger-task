@@ -1,57 +1,26 @@
 #include "pqc_ledger/crypto/hash.hpp"
+#include "picosha2.h"
 #include <cstring>
-
-#ifdef HAVE_OPENSSL
-#include <openssl/sha.h>
-#endif
 
 namespace pqc_ledger::crypto {
 
 Result<std::vector<uint8_t>> sha256(const std::vector<uint8_t>& data) {
-#ifdef HAVE_OPENSSL
-    std::vector<uint8_t> hash(SHA256_DIGEST_LENGTH);
-    
-    SHA256_CTX ctx;
-    if (SHA256_Init(&ctx) != 1) {
-        return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Init failed"));
-    }
-    
-    if (SHA256_Update(&ctx, data.data(), data.size()) != 1) {
-        return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Update failed"));
-    }
-    
-    if (SHA256_Final(hash.data(), &ctx) != 1) {
-        return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Final failed"));
-    }
-    
+    std::vector<uint8_t> hash(32);  // SHA256 produces 32 bytes
+    picosha2::hash256(data.begin(), data.end(), hash.begin(), hash.end());
     return Result<std::vector<uint8_t>>::Ok(std::move(hash));
-#else
-    return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "OpenSSL not available. SHA256 requires OpenSSL."));
-#endif
 }
 
 Result<std::vector<uint8_t>> sha256_concat(const std::vector<std::vector<uint8_t>>& parts) {
-#ifdef HAVE_OPENSSL
-    SHA256_CTX ctx;
-    if (SHA256_Init(&ctx) != 1) {
-        return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Init failed"));
-    }
-    
+    // Concatenate all parts into a single vector
+    std::vector<uint8_t> concatenated;
     for (const auto& part : parts) {
-        if (SHA256_Update(&ctx, part.data(), part.size()) != 1) {
-            return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Update failed"));
-        }
+        concatenated.insert(concatenated.end(), part.begin(), part.end());
     }
     
-    std::vector<uint8_t> hash(SHA256_DIGEST_LENGTH);
-    if (SHA256_Final(hash.data(), &ctx) != 1) {
-        return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "SHA256_Final failed"));
-    }
-    
+    // Hash the concatenated data
+    std::vector<uint8_t> hash(32);  // SHA256 produces 32 bytes
+    picosha2::hash256(concatenated.begin(), concatenated.end(), hash.begin(), hash.end());
     return Result<std::vector<uint8_t>>::Ok(std::move(hash));
-#else
-    return Result<std::vector<uint8_t>>::Err(Error(ErrorCode::HashError, "OpenSSL not available. SHA256 requires OpenSSL."));
-#endif
 }
 
 Result<std::vector<uint8_t>> create_signing_message(uint32_t chain_id,

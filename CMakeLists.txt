@@ -17,11 +17,37 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/third_party/picosha2)
 
 # Find dependencies
+# Try common OpenSSL installation paths on Windows
+if(WIN32)
+    # Common OpenSSL installation paths on Windows
+    set(OPENSSL_POSSIBLE_PATHS
+        "C:/Program Files/OpenSSL-Win64"
+        "C:/OpenSSL-Win64"
+        "C:/vcpkg/installed/x64-windows"
+        "$ENV{OPENSSL_ROOT_DIR}"
+    )
+    
+    foreach(POSSIBLE_PATH ${OPENSSL_POSSIBLE_PATHS})
+        if(EXISTS "${POSSIBLE_PATH}")
+            set(OPENSSL_ROOT_DIR "${POSSIBLE_PATH}")
+            break()
+        endif()
+    endforeach()
+endif()
+
 find_package(OpenSSL QUIET)
 if(NOT OpenSSL_FOUND)
     message(WARNING "OpenSSL not found. Some features may not work.")
+    message(STATUS "To install OpenSSL:")
+    message(STATUS "  - Using vcpkg: vcpkg install openssl:x64-windows")
+    message(STATUS "  - Using Chocolatey (admin): choco install openssl -y")
+    message(STATUS "  - Manual: Download from https://slproweb.com/products/Win32OpenSSL.html")
+    message(STATUS "  - See INSTALL_OPENSSL.md for detailed instructions")
+else()
+    message(STATUS "Found OpenSSL: ${OPENSSL_VERSION}")
 endif()
 
 # Find liboqs

@@ -5,12 +5,7 @@
 using namespace pqc_ledger;
 
 TEST(Replay, DifferentChainId) {
-    // Check if OpenSSL is available
-    auto test_hash = crypto::sha256({0x01, 0x02, 0x03});
-    if (test_hash.is_err() && 
-        test_hash.error().message.find("OpenSSL not available") != std::string::npos) {
-        GTEST_SKIP() << "Requires OpenSSL for SHA256";
-    }
+    // SHA256 is now always available via picosha2
     
     // Generate keypair
     auto keypair_result = crypto::generate_keypair("Dilithium3");
@@ -52,6 +47,8 @@ TEST(Replay, DifferentChainId) {
 }
 
 TEST(Replay, DomainSeparation) {
+    // SHA256 is now always available via picosha2
+    
     // Test that the signing message includes chain_id
     // This is tested indirectly through the create_signing_message function
     
@@ -65,7 +62,7 @@ TEST(Replay, DomainSeparation) {
     tx.amount = 1000;
     tx.fee = 10;
     tx.auth_mode = AuthMode::PqOnly;
-    tx.auth = PqSignature{std::vector<uint8_t>(3293, 0x55)};
+    tx.auth = PqSignature{std::vector<uint8_t>(3309, 0x55)};  // ML-DSA-65 sig size
     
     // Encode for signing
     auto encoded1 = codec::encode_for_signing(tx);

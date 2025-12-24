@@ -16,7 +16,7 @@ TEST(IntegrationRoundtrip, EncodeDecodeEncode) {
     tx.amount = 1000;
     tx.fee = 10;
     tx.auth_mode = AuthMode::PqOnly;
-    tx.auth = PqSignature{std::vector<uint8_t>(3293, 0x55)};  // Dilithium3 sig size
+    tx.auth = PqSignature{std::vector<uint8_t>(3309, 0x55)};  // ML-DSA-65 sig size
     
     // Encode
     auto encoded1 = codec::encode(tx);
@@ -35,12 +35,7 @@ TEST(IntegrationRoundtrip, EncodeDecodeEncode) {
 }
 
 TEST(IntegrationRoundtrip, SignVerify) {
-    // Check if OpenSSL is available by testing SHA256
-    auto test_hash = crypto::sha256({0x01, 0x02, 0x03});
-    if (test_hash.is_err() && 
-        test_hash.error().message.find("OpenSSL not available") != std::string::npos) {
-        GTEST_SKIP() << "Requires OpenSSL for SHA256";
-    }
+    // SHA256 is now always available via picosha2
     
     // Generate keypair
     auto keypair_result = crypto::generate_keypair("Dilithium3");
