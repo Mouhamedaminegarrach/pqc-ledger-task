@@ -1,0 +1,27 @@
+# CMake generation dependency list for this directory.
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Compiler/MSVC-CXX.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Compiler/MSVC.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindGTest.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindOpenSSL.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/FindPackageMessage.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/GoogleTest.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Platform/Windows-MSVC.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Platform/Windows.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake
+C:/Users/Med Amine Garrach/Downloads/cmake-3.30.3-windows-x86_64/cmake-3.30.3-windows-x86_64/share/cmake-3.30/Modules/SelectLibraryConfigurations.cmake
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/CMakeLists.txt
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/3.30.3/CMakeCXXCompiler.cmake
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/3.30.3/CMakeRCCompiler.cmake
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/3.30.3/CMakeSystem.cmake

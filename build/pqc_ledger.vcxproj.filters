@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\codec\encode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\codec\decode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\hash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\pq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\address.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\classical.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\tx\signing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\tx\validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\pqc_ledger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\types.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\codec\encode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\codec\decode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\hash.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\pq.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\address.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\classical.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\tx\signing.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\tx\validation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2D211FC4-21F7-34D6-871A-0BADB7818606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{62A17C99-9971-3638-8D71-3542031769E2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/pqc_ledger.dir
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/pqc-ledger-cli.dir
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/INSTALL.dir
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/ZERO_CHECK.dir
