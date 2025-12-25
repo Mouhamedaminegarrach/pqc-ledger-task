@@ -105,6 +105,10 @@ pqc-ledger-task/
 └── benches/                 # Benchmarks
 ```
 
+## Credits
+
+This project was developed by **Mohamed Amine Garrach** using **Cursor** (AI-powered code editor).
+
 ## License
 
 [Add license information]
