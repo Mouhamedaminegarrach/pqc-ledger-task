@@ -1,75 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\codec\encode.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\codec\encode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\codec\decode.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\codec\decode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\hash.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\crypto\hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\pq.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\crypto\pq.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\address.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\crypto\address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\crypto\classical.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\crypto\classical.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\tx\signing.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\tx\signing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\tx\validation.cpp">
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\tx\validation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\pqc_ledger.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\pqc_ledger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\error.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\types.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\codec\encode.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\codec\encode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\codec\decode.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\codec\decode.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\hash.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\crypto\hash.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\pq.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\crypto\pq.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\address.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\crypto\address.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\crypto\classical.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\crypto\classical.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\tx\signing.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\tx\signing.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include\pqc_ledger\tx\validation.hpp">
+    <ClInclude Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include\pqc_ledger\tx\validation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{2D211FC4-21F7-34D6-871A-0BADB7818606}</UniqueIdentifier>
+      <UniqueIdentifier>{B923DF69-6264-3A89-88E5-174B30383830}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{62A17C99-9971-3638-8D71-3542031769E2}</UniqueIdentifier>
+      <UniqueIdentifier>{06BE5CA4-E774-3F95-A320-AA33315F0DBF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

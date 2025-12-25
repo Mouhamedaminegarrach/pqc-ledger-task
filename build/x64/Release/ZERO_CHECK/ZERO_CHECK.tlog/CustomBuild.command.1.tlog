@@ -1,6 +1,6 @@
-^C:\USERS\MED AMINE GARRACH\DOWNLOADS\TECHNICAL-TASK-AMINE\BUILD\CMAKEFILES\2352745A1C4D85B165E99E3FA4A55BFF\GENERATE.STAMP.RULE
+^C:\USERS\GARRACH\DOWNLOADS\TECHNICAL-TASK-AMINE\PQC-LEDGER-TASK\BUILD\CMAKEFILES\DDA44C58F14822FFAF028BC5D576E0E1\GENERATE.STAMP.RULE
 setlocal
-"C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\bin\cmake.exe" "-SC:/Users/Med Amine Garrach/Downloads/technical-task-Amine" "-BC:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/pqc-ledger-task.sln"
+"C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\bin\cmake.exe" -SC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task -BC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/pqc-ledger-task.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

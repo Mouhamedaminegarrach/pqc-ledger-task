@@ -42,10 +42,39 @@ std::string bytes_to_hex(const std::vector<uint8_t>& bytes) {
 
 std::vector<uint8_t> hex_to_bytes(const std::string& hex) {
     std::vector<uint8_t> bytes;
-    for (size_t i = 0; i < hex.length(); i += 2) {
-        std::string byte_str = hex.substr(i, 2);
-        bytes.push_back(static_cast<uint8_t>(std::stoul(byte_str, nullptr, 16)));
+    std::string clean_hex;
+    
+    // Remove whitespace
+    for (char c : hex) {
+        if (!std::isspace(static_cast<unsigned char>(c))) {
+            clean_hex += c;
+        }
     }
+    
+    // Hex string must have even length
+    if (clean_hex.length() % 2 != 0) {
+        throw std::runtime_error("Hex string must have even length");
+    }
+    
+    // Validate and convert hex characters
+    for (size_t i = 0; i < clean_hex.length(); i += 2) {
+        std::string byte_str = clean_hex.substr(i, 2);
+        
+        // Validate hex characters
+        for (char c : byte_str) {
+            if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'))) {
+                throw std::runtime_error("Invalid hex character: " + std::string(1, c));
+            }
+        }
+        
+        // Convert with error handling
+        try {
+            bytes.push_back(static_cast<uint8_t>(std::stoul(byte_str, nullptr, 16)));
+        } catch (const std::exception& e) {
+            throw std::runtime_error("Invalid hex byte: " + byte_str);
+        }
+    }
+    
     return bytes;
 }
 
@@ -61,262 +90,317 @@ void print_usage() {
 }
 
 int cmd_gen_key(const ArgParser& parser) {
-    std::string algo = parser.get("--algo", "pq");
-    std::string out_dir = parser.get("--out");
-    
-    if (out_dir.empty()) {
-        std::cerr << "Error: --out is required\n";
-        return 1;
-    }
-    
-    if (algo != "pq") {
-        std::cerr << "Error: Only 'pq' algorithm is supported\n";
-        return 1;
-    }
-    
-    // Generate PQ keypair - try Dilithium3 first, fallback to Dilithium2
-    auto keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium3");
-    if (keypair_result.is_err()) {
-        // Try Dilithium2 as fallback
-        keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium2");
-        if (keypair_result.is_err()) {
-            std::cerr << "Error generating keypair: " << keypair_result.error().message << "\n";
-            std::cerr << "Note: liboqs must be built with Dilithium2 or Dilithium3 enabled.\n";
-            return 1;
-        }
-    }
-    
-    const auto& [pubkey, privkey] = keypair_result.value();
-    
-    // Save keys
-    std::string pubkey_path = out_dir + "/pubkey.bin";
-    std::string privkey_path = out_dir + "/privkey.bin";
-    
-    auto save_pub_result = pqc_ledger::crypto::save_public_key(pubkey, pubkey_path);
-    if (save_pub_result.is_err()) {
-        std::cerr << "Error saving public key: " << save_pub_result.error().message << "\n";
-        return 1;
-    }
-    
-    auto save_priv_result = pqc_ledger::crypto::save_private_key(privkey, privkey_path);
-    if (save_priv_result.is_err()) {
-        std::cerr << "Error saving private key: " << save_priv_result.error().message << "\n";
-        return 1;
-    }
-    
-    std::cout << "Keypair generated successfully:\n";
-    std::cout << "  Public key: " << pubkey_path << "\n";
-    std::cout << "  Private key: " << privkey_path << "\n";
-    
-    return 0;
-}
-
-int cmd_make_tx(const ArgParser& parser) {
-    std::string to_hex = parser.get("--to");
-    std::string amount_str = parser.get("--amount");
-    std::string fee_str = parser.get("--fee");
-    std::string nonce_str = parser.get("--nonce");
-    std::string chain_str = parser.get("--chain");
-    std::string pubkey_path = parser.get("--pubkey");
-    std::string format = parser.get("--format", "hex");  // Default to hex
-    
-    if (to_hex.empty() || amount_str.empty() || fee_str.empty() || 
-        nonce_str.empty() || chain_str.empty() || pubkey_path.empty()) {
-        std::cerr << "Error: All arguments are required\n";
-        return 1;
-    }
-    
-    // Validate format
-    if (format != "hex" && format != "base64") {
-        std::cerr << "Error: --format must be 'hex' or 'base64'\n";
-        return 1;
-    }
-    
-    // Parse arguments
-    uint64_t amount = std::stoull(amount_str);
-    uint64_t fee = std::stoull(fee_str);
-    uint64_t nonce = std::stoull(nonce_str);
-    uint32_t chain_id = std::stoul(chain_str);
-    
-    // Parse 'to' address
-    auto to_bytes = hex_to_bytes(to_hex);
-    if (to_bytes.size() != 32) {
-        std::cerr << "Error: 'to' must be 64 hex characters (32 bytes)\n";
-        return 1;
-    }
-    pqc_ledger::Address to_addr;
-    std::copy(to_bytes.begin(), to_bytes.end(), to_addr.begin());
-    
-    // Load public key
-    auto pubkey_result = pqc_ledger::crypto::load_public_key(pubkey_path);
-    if (pubkey_result.is_err()) {
-        std::cerr << "Error loading public key: " << pubkey_result.error().message << "\n";
-        return 1;
-    }
-    
-    // Create unsigned transaction
-    pqc_ledger::Transaction tx;
-    tx.version = 1;
-    tx.chain_id = chain_id;
-    tx.nonce = nonce;
-    tx.from_pubkey = pubkey_result.value();
-    tx.to = to_addr;
-    tx.amount = amount;
-    tx.fee = fee;
-    tx.auth_mode = pqc_ledger::AuthMode::PqOnly;
-    tx.auth = pqc_ledger::PqSignature{{}};  // Empty signature for unsigned tx
-    
-    // Encode transaction
-    auto encoded_result = pqc_ledger::codec::encode(tx);
-    if (encoded_result.is_err()) {
-        std::cerr << "Error encoding transaction: " << encoded_result.error().message << "\n";
-        return 1;
-    }
-    
-    // Output in requested format
-    if (format == "base64") {
-        std::cout << pqc_ledger::codec::encode_to_base64(encoded_result.value()) << "\n";
-    } else {
-        std::cout << bytes_to_hex(encoded_result.value()) << "\n";
-    }
-    
-    return 0;
-}
-
-int cmd_sign_tx(const ArgParser& parser) {
-    std::string tx_hex = parser.get("--tx");
-    std::string pq_key_path = parser.get("--pq-key");
-    std::string ed25519_key_path = parser.get("--ed25519-key", "");
-    
-    if (tx_hex.empty() || pq_key_path.empty()) {
-        std::cerr << "Error: --tx and --pq-key are required\n";
-        return 1;
-    }
-    
-    // Decode transaction
-    auto tx_bytes = hex_to_bytes(tx_hex);
-    auto decode_result = pqc_ledger::codec::decode(tx_bytes);
-    if (decode_result.is_err()) {
-        std::cerr << "Error decoding transaction: " << decode_result.error().message << "\n";
-        return 1;
-    }
-    
-    auto tx = decode_result.value();
-    
-    // Load private keys
-    auto pq_privkey_result = pqc_ledger::crypto::load_private_key(pq_key_path);
-    if (pq_privkey_result.is_err()) {
-        std::cerr << "Error loading PQ private key: " << pq_privkey_result.error().message << "\n";
-        return 1;
-    }
-    
-    // Sign transaction
-    if (!ed25519_key_path.empty()) {
-        // Hybrid mode
-        auto ed25519_privkey_result = pqc_ledger::crypto::load_ed25519_private_key(ed25519_key_path);
-        if (ed25519_privkey_result.is_err()) {
-            std::cerr << "Error loading Ed25519 private key: " << ed25519_privkey_result.error().message << "\n";
+    try {
+        std::string algo = parser.get("--algo", "pq");
+        std::string out_dir = parser.get("--out");
+        
+        if (out_dir.empty()) {
+            std::cerr << "Error: --out is required\n";
             return 1;
         }
         
-        auto sign_result = pqc_ledger::tx::sign_transaction_hybrid(
-            tx, pq_privkey_result.value(), ed25519_privkey_result.value());
-        if (sign_result.is_err()) {
-            std::cerr << "Error signing transaction: " << sign_result.error().message << "\n";
+        if (algo != "pq") {
+            std::cerr << "Error: Only 'pq' algorithm is supported\n";
             return 1;
         }
-    } else {
-        // PQ-only mode
-        auto sign_result = pqc_ledger::tx::sign_transaction(tx, pq_privkey_result.value());
-        if (sign_result.is_err()) {
-            std::cerr << "Error signing transaction: " << sign_result.error().message << "\n";
+        
+        // Generate PQ keypair - try Dilithium3 first, fallback to Dilithium2
+        auto keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium3");
+        if (keypair_result.is_err()) {
+            // Try Dilithium2 as fallback
+            keypair_result = pqc_ledger::crypto::generate_keypair("Dilithium2");
+            if (keypair_result.is_err()) {
+                std::cerr << "Error generating keypair: " << keypair_result.error().message << "\n";
+                std::cerr << "Note: liboqs must be built with Dilithium2 or Dilithium3 enabled.\n";
+                return 1;
+            }
+        }
+        
+        const auto& [pubkey, privkey] = keypair_result.value();
+        
+        // Save keys
+        std::string pubkey_path = out_dir + "/pubkey.bin";
+        std::string privkey_path = out_dir + "/privkey.bin";
+        
+        auto save_pub_result = pqc_ledger::crypto::save_public_key(pubkey, pubkey_path);
+        if (save_pub_result.is_err()) {
+            std::cerr << "Error saving public key: " << save_pub_result.error().message << "\n";
             return 1;
         }
-    }
-    
-    // Encode signed transaction
-    auto encoded_result = pqc_ledger::codec::encode(tx);
-    if (encoded_result.is_err()) {
-        std::cerr << "Error encoding signed transaction: " << encoded_result.error().message << "\n";
+        
+        auto save_priv_result = pqc_ledger::crypto::save_private_key(privkey, privkey_path);
+        if (save_priv_result.is_err()) {
+            std::cerr << "Error saving private key: " << save_priv_result.error().message << "\n";
+            return 1;
+        }
+        
+        std::cout << "Keypair generated successfully:\n";
+        std::cout << "  Public key: " << pubkey_path << "\n";
+        std::cout << "  Private key: " << privkey_path << "\n";
+        
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: Unexpected exception: " << e.what() << "\n";
+        return 1;
+    } catch (...) {
+        std::cerr << "Error: Unknown exception occurred\n";
         return 1;
     }
-    
-    // Output as hex
-    std::cout << bytes_to_hex(encoded_result.value()) << "\n";
-    
-    return 0;
+}
+
+int cmd_make_tx(const ArgParser& parser) {
+    try {
+        std::string to_hex = parser.get("--to");
+        std::string amount_str = parser.get("--amount");
+        std::string fee_str = parser.get("--fee");
+        std::string nonce_str = parser.get("--nonce");
+        std::string chain_str = parser.get("--chain");
+        std::string pubkey_path = parser.get("--pubkey");
+        std::string format = parser.get("--format", "hex");  // Default to hex
+        
+        if (to_hex.empty() || amount_str.empty() || fee_str.empty() || 
+            nonce_str.empty() || chain_str.empty() || pubkey_path.empty()) {
+            std::cerr << "Error: All arguments are required\n";
+            return 1;
+        }
+        
+        // Validate format
+        if (format != "hex" && format != "base64") {
+            std::cerr << "Error: --format must be 'hex' or 'base64'\n";
+            return 1;
+        }
+        
+        // Parse arguments with error handling
+        uint64_t amount, fee, nonce;
+        uint32_t chain_id;
+        try {
+            amount = std::stoull(amount_str);
+            fee = std::stoull(fee_str);
+            nonce = std::stoull(nonce_str);
+            chain_id = std::stoul(chain_str);
+        } catch (const std::exception& e) {
+            std::cerr << "Error: Invalid numeric argument: " << e.what() << "\n";
+            return 1;
+        }
+        
+        // Parse 'to' address using library function
+        auto addr_result = pqc_ledger::crypto::address_from_hex(to_hex);
+        if (addr_result.is_err()) {
+            std::cerr << "Error: Invalid 'to' address: " << addr_result.error().message << "\n";
+            return 1;
+        }
+        pqc_ledger::Address to_addr = addr_result.value();
+        
+        // Load public key
+        auto pubkey_result = pqc_ledger::crypto::load_public_key(pubkey_path);
+        if (pubkey_result.is_err()) {
+            std::cerr << "Error loading public key: " << pubkey_result.error().message << "\n";
+            return 1;
+        }
+        
+        // Create unsigned transaction
+        pqc_ledger::Transaction tx;
+        tx.version = 1;
+        tx.chain_id = chain_id;
+        tx.nonce = nonce;
+        tx.from_pubkey = pubkey_result.value();
+        tx.to = to_addr;
+        tx.amount = amount;
+        tx.fee = fee;
+        tx.auth_mode = pqc_ledger::AuthMode::PqOnly;
+        tx.auth = pqc_ledger::PqSignature{{}};  // Empty signature for unsigned tx
+        
+        // Encode transaction
+        auto encoded_result = pqc_ledger::codec::encode(tx);
+        if (encoded_result.is_err()) {
+            std::cerr << "Error encoding transaction: " << encoded_result.error().message << "\n";
+            return 1;
+        }
+        
+        // Output in requested format
+        if (format == "base64") {
+            std::cout << pqc_ledger::codec::encode_to_base64(encoded_result.value()) << "\n";
+        } else {
+            std::cout << bytes_to_hex(encoded_result.value()) << "\n";
+        }
+        
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: Unexpected exception: " << e.what() << "\n";
+        return 1;
+    } catch (...) {
+        std::cerr << "Error: Unknown exception occurred\n";
+        return 1;
+    }
+}
+
+int cmd_sign_tx(const ArgParser& parser) {
+    try {
+        std::string tx_hex = parser.get("--tx");
+        std::string pq_key_path = parser.get("--pq-key");
+        std::string ed25519_key_path = parser.get("--ed25519-key", "");
+        
+        if (tx_hex.empty() || pq_key_path.empty()) {
+            std::cerr << "Error: --tx and --pq-key are required\n";
+            return 1;
+        }
+        
+        // Decode transaction using library's safe decoder
+        auto decode_result = pqc_ledger::codec::decode_from_hex(tx_hex);
+        if (decode_result.is_err()) {
+            std::cerr << "Error decoding transaction: " << decode_result.error().message << "\n";
+            return 1;
+        }
+        
+        auto tx = decode_result.value();
+        
+        // Load private keys
+        auto pq_privkey_result = pqc_ledger::crypto::load_private_key(pq_key_path);
+        if (pq_privkey_result.is_err()) {
+            std::cerr << "Error loading PQ private key: " << pq_privkey_result.error().message << "\n";
+            return 1;
+        }
+        
+        // Sign transaction
+        if (!ed25519_key_path.empty()) {
+            // Hybrid mode
+            auto ed25519_privkey_result = pqc_ledger::crypto::load_ed25519_private_key(ed25519_key_path);
+            if (ed25519_privkey_result.is_err()) {
+                std::cerr << "Error loading Ed25519 private key: " << ed25519_privkey_result.error().message << "\n";
+                return 1;
+            }
+            
+            auto sign_result = pqc_ledger::tx::sign_transaction_hybrid(
+                tx, pq_privkey_result.value(), ed25519_privkey_result.value());
+            if (sign_result.is_err()) {
+                std::cerr << "Error signing transaction: " << sign_result.error().message << "\n";
+                return 1;
+            }
+        } else {
+            // PQ-only mode
+            auto sign_result = pqc_ledger::tx::sign_transaction(tx, pq_privkey_result.value());
+            if (sign_result.is_err()) {
+                std::cerr << "Error signing transaction: " << sign_result.error().message << "\n";
+                return 1;
+            }
+        }
+        
+        // Encode signed transaction
+        auto encoded_result = pqc_ledger::codec::encode(tx);
+        if (encoded_result.is_err()) {
+            std::cerr << "Error encoding signed transaction: " << encoded_result.error().message << "\n";
+            return 1;
+        }
+        
+        // Output as hex
+        std::cout << bytes_to_hex(encoded_result.value()) << "\n";
+        
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: Unexpected exception: " << e.what() << "\n";
+        return 1;
+    } catch (...) {
+        std::cerr << "Error: Unknown exception occurred\n";
+        return 1;
+    }
 }
 
 int cmd_verify_tx(const ArgParser& parser) {
-    std::string tx_hex = parser.get("--tx");
-    std::string chain_str = parser.get("--chain");
-    
-    if (tx_hex.empty() || chain_str.empty()) {
-        std::cerr << "Error: --tx and --chain are required\n";
-        return 1;
-    }
-    
-    uint32_t chain_id = std::stoul(chain_str);
-    
-    // Decode transaction
-    auto tx_bytes = hex_to_bytes(tx_hex);
-    auto decode_result = pqc_ledger::codec::decode(tx_bytes);
-    if (decode_result.is_err()) {
-        std::cerr << "Error decoding transaction: " << decode_result.error().message << "\n";
+    try {
+        std::string tx_hex = parser.get("--tx");
+        std::string chain_str = parser.get("--chain");
+        
+        if (tx_hex.empty() || chain_str.empty()) {
+            std::cout << "valid: false\n";
+            std::cout << "error: --tx and --chain are required\n";
+            return 1;
+        }
+        
+        // Parse chain_id with error handling
+        uint32_t chain_id;
+        try {
+            chain_id = std::stoul(chain_str);
+        } catch (const std::exception& e) {
+            std::cout << "valid: false\n";
+            std::cout << "error: Invalid chain ID: " << chain_str << "\n";
+            return 1;
+        }
+        
+        // Decode transaction using library's safe decoder
+        auto decode_result = pqc_ledger::codec::decode_from_hex(tx_hex);
+        if (decode_result.is_err()) {
+            std::cout << "valid: false\n";
+            std::cout << "error: " << decode_result.error().message << "\n";
+            return 1;
+        }
+        
+        auto tx = decode_result.value();
+        
+        // Verify transaction
+        auto verify_result = pqc_ledger::tx::verify_transaction(tx, chain_id);
+        if (verify_result.is_err()) {
+            std::cout << "valid: false\n";
+            std::cout << "error: " << verify_result.error().message << "\n";
+            return 1;
+        }
+        
+        bool valid = verify_result.value();
+        
+        // Derive address (always print, even on failure)
+        auto addr_result = pqc_ledger::crypto::derive_address(tx.from_pubkey);
+        if (addr_result.is_err()) {
+            std::cout << "from_address: <error deriving address: " << addr_result.error().message << ">\n";
+        } else {
+            std::cout << "from_address: " << pqc_ledger::crypto::address_to_hex(addr_result.value()) << "\n";
+        }
+        
+        if (valid) {
+            std::cout << "valid: true\n";
+            return 0;
+        } else {
+            std::cout << "valid: false\n";
+            std::cout << "error: signature verification failed\n";
+            return 1;
+        }
+    } catch (const std::exception& e) {
         std::cout << "valid: false\n";
+        std::cout << "error: Unexpected exception: " << e.what() << "\n";
         return 1;
-    }
-    
-    auto tx = decode_result.value();
-    
-    // Verify transaction
-    auto verify_result = pqc_ledger::tx::verify_transaction(tx, chain_id);
-    if (verify_result.is_err()) {
-        std::cerr << "Error verifying transaction: " << verify_result.error().message << "\n";
+    } catch (...) {
         std::cout << "valid: false\n";
-        return 1;
-    }
-    
-    bool valid = verify_result.value();
-    
-    // Derive address
-    auto addr_result = pqc_ledger::crypto::derive_address(tx.from_pubkey);
-    if (addr_result.is_err()) {
-        std::cerr << "Error deriving address: " << addr_result.error().message << "\n";
-    } else {
-        std::cout << "from_address: " << pqc_ledger::crypto::address_to_hex(addr_result.value()) << "\n";
-    }
-    
-    if (valid) {
-        std::cout << "valid: true\n";
-        return 0;
-    } else {
-        std::cout << "valid: false\n";
-        std::cout << "error: signature verification failed\n";
+        std::cout << "error: Unknown exception occurred\n";
         return 1;
     }
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        print_usage();
+    try {
+        if (argc < 2) {
+            print_usage();
+            return 1;
+        }
+        
+        ArgParser parser(argc, argv);
+        std::string command = argv[1];
+        
+        if (command == "gen-key") {
+            return cmd_gen_key(parser);
+        } else if (command == "make-tx") {
+            return cmd_make_tx(parser);
+        } else if (command == "sign-tx") {
+            return cmd_sign_tx(parser);
+        } else if (command == "verify-tx") {
+            return cmd_verify_tx(parser);
+        } else {
+            std::cerr << "Unknown command: " << command << "\n";
+            print_usage();
+            return 1;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Fatal error: " << e.what() << "\n";
         return 1;
-    }
-    
-    ArgParser parser(argc, argv);
-    std::string command = argv[1];
-    
-    if (command == "gen-key") {
-        return cmd_gen_key(parser);
-    } else if (command == "make-tx") {
-        return cmd_make_tx(parser);
-    } else if (command == "sign-tx") {
-        return cmd_sign_tx(parser);
-    } else if (command == "verify-tx") {
-        return cmd_verify_tx(parser);
-    } else {
-        std::cerr << "Unknown command: " << command << "\n";
-        print_usage();
+    } catch (...) {
+        std::cerr << "Fatal error: Unknown exception occurred\n";
         return 1;
     }
 }

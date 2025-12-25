@@ -75,25 +75,42 @@ def generate_graph(results, output_file='benchmark_graph.png'):
         print("No valid results to graph")
         return
     
-    # Filter for the main benchmark (Verify100Transactions)
-    main_bench = [r for r in results if 'Verify100Transactions' in r['name']]
-    other_benches = [r for r in results if 'Verify100Transactions' not in r['name']]
+    # Filter for the main benchmark (Verify100PQSignedTransactions or Verify100Transactions)
+    main_bench = [r for r in results if 'Verify100PQSignedTransactions' in r['name'] or 'Verify100Transactions' in r['name']]
+    other_benches = [r for r in results if 'Verify100PQSignedTransactions' not in r['name'] and 'Verify100Transactions' not in r['name']]
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     
-    # Graph 1: Verify 100 Transactions - Average Time
+    # Graph 1: Verify 100 Transactions - Average Time Per Transaction
     if main_bench:
         bench = main_bench[0]
-        ax1.bar(['100 Transactions'], [bench['real_time_us'] / 1000.0], 
-                color='steelblue', alpha=0.7)
+        # Calculate average time per transaction
+        avg_time_per_tx_us = bench['real_time_us'] / 100.0
+        avg_time_per_tx_ms = avg_time_per_tx_us / 1000.0
+        total_time_ms = bench['real_time_us'] / 1000.0
+        
+        # Show both total time and average per tx
+        categories = ['Total (100 txs)', 'Avg per tx']
+        times = [total_time_ms, avg_time_per_tx_ms]
+        colors = ['steelblue', 'coral']
+        
+        bars = ax1.bar(categories, times, color=colors, alpha=0.7)
         ax1.set_ylabel('Time (milliseconds)')
-        ax1.set_title('Average Verification Time for 100 Transactions')
+        ax1.set_title('PQ Signature Verification: 100 Transactions', fontweight='bold')
         ax1.grid(axis='y', alpha=0.3)
         
-        # Add value label on bar
-        ax1.text(0, bench['real_time_us'] / 1000.0, 
-                f"{bench['real_time_us'] / 1000.0:.2f} ms",
-                ha='center', va='bottom', fontweight='bold')
+        # Add value labels on bars
+        for bar, time in zip(bars, times):
+            height = bar.get_height()
+            ax1.text(bar.get_x() + bar.get_width()/2., height,
+                    f"{time:.3f} ms",
+                    ha='center', va='bottom', fontweight='bold', fontsize=10)
+        
+        # Add annotation for average verify time
+        ax1.text(0.5, 0.95, f'Average verify time: {avg_time_per_tx_us:.2f} μs per transaction',
+                transform=ax1.transAxes, ha='center', va='top',
+                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5),
+                fontsize=11, fontweight='bold')
     
     # Graph 2: All Benchmarks Comparison
     if other_benches:
@@ -113,20 +130,31 @@ def generate_graph(results, output_file='benchmark_graph.png'):
     plt.savefig(output_file, dpi=150, bbox_inches='tight')
     print(f"Graph saved to {output_file}")
     
-    # Print summary
-    print("\n=== Benchmark Summary ===")
+    # Print summary with average verify time prominently displayed
+    print("\n" + "="*60)
+    print("=== Benchmark Summary ===")
+    print("="*60)
     if main_bench:
         bench = main_bench[0]
-        print(f"Verify 100 Transactions:")
-        print(f"  Average time: {bench['real_time_us'] / 1000.0:.2f} ms")
-        print(f"  Iterations: {bench['iterations']}")
+        # Calculate average verify time per transaction
+        avg_time_per_tx_us = bench['real_time_us'] / 100.0
+        avg_time_per_tx_ms = avg_time_per_tx_us / 1000.0
+        
+        print(f"\nVerify 100 PQ-Signed Transactions:")
+        print(f"   Total time for 100 txs: {bench['real_time_us'] / 1000.0:.2f} ms")
+        print(f"   *** Average verify time per tx: {avg_time_per_tx_us:.2f} us ({avg_time_per_tx_ms:.3f} ms) ***")
+        print(f"   Iterations: {bench['iterations']}")
         if bench['items_per_second'] > 0:
-            print(f"  Throughput: {bench['items_per_second']:.2f} items/sec")
+            print(f"   Throughput: {bench['items_per_second']:.0f} transactions/sec")
     
-    print("\nOther benchmarks:")
-    for bench in other_benches:
-        name = bench['name'].replace('BM_', '')
-        print(f"  {name}: {bench['real_time_us']:.2f} μs")
+    if other_benches:
+        print(f"\nOther Benchmarks (for comparison):")
+        for bench in other_benches:
+            name = bench['name'].replace('BM_', '')
+            # Use 'us' instead of μ symbol to avoid encoding issues on Windows
+            print(f"   {name}: {bench['real_time_us']:.2f} us")
+    
+    print("="*60)
 
 def main():
     if len(sys.argv) > 1:

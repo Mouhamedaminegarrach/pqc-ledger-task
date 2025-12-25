@@ -10,6 +10,7 @@ add_executable(test_integration_roundtrip integration_roundtrip.cpp)
 add_executable(test_mutation mutation.cpp)
 add_executable(test_replay replay.cpp)
 add_executable(test_codec_encoding codec_encoding.cpp)
+add_executable(test_validation_tests validation_tests.cpp)
 
 # Helper function to link GTest (handles both find_package and FetchContent)
 function(link_gtest target)
@@ -35,9 +36,13 @@ link_gtest(test_replay)
 target_link_libraries(test_codec_encoding PRIVATE pqc_ledger)
 link_gtest(test_codec_encoding)
 
+target_link_libraries(test_validation_tests PRIVATE pqc_ledger)
+link_gtest(test_validation_tests)
+
 # Add tests to CTest
 add_test(NAME IntegrationRoundtrip COMMAND test_integration_roundtrip)
 add_test(NAME Mutation COMMAND test_mutation)
 add_test(NAME Replay COMMAND test_replay)
 add_test(NAME CodecEncoding COMMAND test_codec_encoding)
+add_test(NAME ValidationTests COMMAND test_validation_tests)
 

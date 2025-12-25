@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Med Amine Garrach/Downloads/technical-task-Amine
+# Install script for directory: C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/pqc-ledger-task")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files/pqc-ledger-task")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,28 +34,38 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/_deps/googletest-build/cmake_install.cmake")
+  include("C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/_deps/googletest-build/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/tests/cmake_install.cmake")
+  include("C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/tests/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/_deps/googlebenchmark-build/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/benches/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/Debug/pqc_ledger.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/Debug/pqc_ledger.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/Release/pqc_ledger.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/Release/pqc_ledger.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/MinSizeRel/pqc_ledger.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/MinSizeRel/pqc_ledger.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/RelWithDebInfo/pqc_ledger.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/RelWithDebInfo/pqc_ledger.lib")
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/include/pqc_ledger" FILES_MATCHING REGEX "/[^/]*\\.hpp$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/include/pqc_ledger" FILES_MATCHING REGEX "/[^/]*\\.hpp$")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -73,6 +83,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

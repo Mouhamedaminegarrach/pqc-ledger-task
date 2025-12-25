@@ -45,7 +45,7 @@ if(NOT OpenSSL_FOUND)
     message(STATUS "  - Using vcpkg: vcpkg install openssl:x64-windows")
     message(STATUS "  - Using Chocolatey (admin): choco install openssl -y")
     message(STATUS "  - Manual: Download from https://slproweb.com/products/Win32OpenSSL.html")
-    message(STATUS "  - See INSTALL_OPENSSL.md for detailed instructions")
+    message(STATUS "  - See README.md for more information")
 else()
     message(STATUS "Found OpenSSL: ${OPENSSL_VERSION}")
 endif()
@@ -191,11 +191,24 @@ endif()
 if(BUILD_BENCHMARKS)
     find_package(benchmark QUIET)
     
-    if(benchmark_FOUND)
-        add_subdirectory(benches)
+    if(NOT benchmark_FOUND)
+        # Use FetchContent to download Google Benchmark if not found
+        include(FetchContent)
+        FetchContent_Declare(
+            googlebenchmark
+            GIT_REPOSITORY https://github.com/google/benchmark.git
+            GIT_TAG v1.8.3
+        )
+        # Prevent overriding the parent project's compiler/linker settings
+        set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
+        set(BENCHMARK_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
+        FetchContent_MakeAvailable(googlebenchmark)
+        message(STATUS "Google Benchmark downloaded via FetchContent")
     else()
-        message(WARNING "Google Benchmark not found. Benchmarks will not be built.")
+        message(STATUS "Google Benchmark found via find_package")
     endif()
+    
+    add_subdirectory(benches)
 endif()
 
 # Installation

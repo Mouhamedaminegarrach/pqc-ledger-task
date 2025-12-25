@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F1067783-1420-3B2E-BBBF-C32352036F71}</ProjectGuid>
+    <ProjectGuid>{9D26501A-48DE-3269-A3C1-2188B95F1081}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>pqc-ledger-cli</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -33,22 +33,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pqc-ledger-cli.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pqc-ledger-cli</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pqc-ledger-cli.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pqc-ledger-cli</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pqc-ledger-cli.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pqc-ledger-cli</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pqc-ledger-cli.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pqc-ledger-cli</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -106,10 +106,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -117,13 +117,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>lib\Debug\pqc_ledger.lib;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\Debug\pqc_ledger.lib;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/Debug/pqc-ledger-cli.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/bin/Debug/pqc-ledger-cli.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/Debug/pqc-ledger-cli.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/bin/Debug/pqc-ledger-cli.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -132,7 +132,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -153,10 +153,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -164,13 +164,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>lib\Release\pqc_ledger.lib;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\Release\pqc_ledger.lib;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/Release/pqc-ledger-cli.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/bin/Release/pqc-ledger-cli.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/Release/pqc-ledger-cli.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/bin/Release/pqc-ledger-cli.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -179,7 +179,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -200,10 +200,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,13 +211,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>lib\MinSizeRel\pqc_ledger.lib;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\MinSizeRel\pqc_ledger.lib;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/MinSizeRel/pqc-ledger-cli.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/bin/MinSizeRel/pqc-ledger-cli.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/MinSizeRel/pqc-ledger-cli.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/bin/MinSizeRel/pqc-ledger-cli.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -226,7 +226,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -246,10 +246,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\include;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\include;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\picosha2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -257,13 +257,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>lib\RelWithDebInfo\pqc_ledger.lib;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>lib\RelWithDebInfo\pqc_ledger.lib;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\third_party\liboqs\build\lib\Release\oqs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/lib/RelWithDebInfo/pqc-ledger-cli.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/bin/RelWithDebInfo/pqc-ledger-cli.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/lib/RelWithDebInfo/pqc-ledger-cli.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/bin/RelWithDebInfo/pqc-ledger-cli.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -271,11 +271,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\bin\cmake.exe" "-SC:/Users/Med Amine Garrach/Downloads/technical-task-Amine" "-BC:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build" --check-stamp-file "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/generate.stamp"
+"C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\bin\cmake.exe" -SC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task -BC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build --check-stamp-file C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -283,12 +283,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGit.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeCXXCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeRCCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\bin\cmake.exe" "-SC:/Users/Med Amine Garrach/Downloads/technical-task-Amine" "-BC:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build" --check-stamp-file "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/generate.stamp"
+"C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\bin\cmake.exe" -SC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task -BC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build --check-stamp-file C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -296,12 +296,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGit.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeCXXCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeRCCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\bin\cmake.exe" "-SC:/Users/Med Amine Garrach/Downloads/technical-task-Amine" "-BC:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build" --check-stamp-file "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/generate.stamp"
+"C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\bin\cmake.exe" -SC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task -BC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build --check-stamp-file C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -309,12 +309,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGit.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeCXXCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeRCCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\bin\cmake.exe" "-SC:/Users/Med Amine Garrach/Downloads/technical-task-Amine" "-BC:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build" --check-stamp-file "C:/Users/Med Amine Garrach/Downloads/technical-task-Amine/build/CMakeFiles/generate.stamp"
+"C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\bin\cmake.exe" -SC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task -BC:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build --check-stamp-file C:/Users/Garrach/Downloads/technical-task-Amine/pqc-ledger-task/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -322,23 +322,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindGit.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Users\Med Amine Garrach\Downloads\cmake-3.30.3-windows-x86_64\cmake-3.30.3-windows-x86_64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeCXXCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeRCCompiler.cmake;C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\3.30.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\ExternalProject\shared_internal_commands.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FetchContent\CMakeLists.cmake.in;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindGit.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindOpenSSL.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\FindPackageMessage.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\GoogleTest.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;C:\Program Files\GNU Octave\Octave-10.2.0\mingw64\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeCXXCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeRCCompiler.cmake;C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\3.30.5\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\src\cli\main.cpp" />
+    <ClCompile Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\src\cli\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\ZERO_CHECK.vcxproj">
-      <Project>{F0E454BB-7394-33F9-8542-A22F618A9263}</Project>
+    <ProjectReference Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\ZERO_CHECK.vcxproj">
+      <Project>{1623781F-5DD6-3B0F-85F2-020B19BB137F}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Med Amine Garrach\Downloads\technical-task-Amine\build\pqc_ledger.vcxproj">
-      <Project>{7D40E71D-4262-3784-8ABA-6578980E7013}</Project>
+    <ProjectReference Include="C:\Users\Garrach\Downloads\technical-task-Amine\pqc-ledger-task\build\pqc_ledger.vcxproj">
+      <Project>{4CF7B420-6236-33CC-8B53-6116624395C6}</Project>
       <Name>pqc_ledger</Name>
     </ProjectReference>
   </ItemGroup>
